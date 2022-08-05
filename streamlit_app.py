@@ -111,6 +111,7 @@ try:
 # streamlit.header("The fruit load list contains:")
 # streamlit.dataframe(my_data_rows)
 
+
 streamlit.header("The fruit load list contains:")
 #Snowflake related functions
 def get_fruit_load_list():
