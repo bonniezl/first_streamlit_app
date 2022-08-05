@@ -43,24 +43,23 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 
 
-'''
-#new section to display fruitvice api response
-streamlit.header("Fruityvice Fruit Advice!")
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
-streamlit.write('The user entered ', fruit_choice)
+# #new section to display fruitvice api response
+# streamlit.header("Fruityvice Fruit Advice!")
+# fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+# streamlit.write('The user entered ', fruit_choice)
 
-# import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-# fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-# streamlit.text(fruityvice_response.json())
+# # import requests
+# fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+# # fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+# # streamlit.text(fruityvice_response.json())
 
 
-# Normalize the fruitvice api response data from json version 
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+# # Normalize the fruitvice api response data from json version 
+# fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 
-# output the normalized fruitvice api response data as a table  
-streamlit.dataframe(fruityvice_normalized)
-'''
+# # output the normalized fruitvice api response data as a table  
+# streamlit.dataframe(fruityvice_normalized)
+
 
 #new section to display fruitvice api response
 streamlit.header("Fruityvice Fruit Advice!")
