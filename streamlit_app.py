@@ -76,7 +76,22 @@ try:
   else:
     back_from_function = get_furityvice_data(fruit_choice) 
     streamlit.dataframe(back_from_function)
- 
+
+    
+streamlit.header("The fruit load list contains:")
+#Snowflake related functions
+def get_fruit_load_list():
+   with my_cnx.cursor() as my_cur:
+        my_cnx.execute("select * from fruit_load_list")
+        return my_cur.fetchall()
+
+#add a button to load the fruit
+if steamlit.button ('Get Fruit Load List'):
+  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+  my_data_rows = get_fruit_load_lost()
+  streamlit.dataframe(my_data_rows)
+
+
 
 # #new section to display fruitvice api response
 # streamlit.header("Fruityvice Fruit Advice!")
@@ -111,19 +126,6 @@ try:
 # streamlit.header("The fruit load list contains:")
 # streamlit.dataframe(my_data_rows)
 
-
-streamlit.header("The fruit load list contains:")
-#Snowflake related functions
-def get_fruit_load_list():
-   with my_cnx.cursor() as my_cur:
-        my_cnx.execute("select * from fruit_load_list")
-        return my_cur.fetchall()
-
-#add a button to load the fruit
-if steamlit.button ('Get Fruit Load List'):
-  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-  my_data_rows = get_fruit_load_lost()
-  streamlit.dataframe(my_data_rows)
 
   
 #don't run anything past here while we troubleshoot
